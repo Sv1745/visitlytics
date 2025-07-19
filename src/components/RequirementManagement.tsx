@@ -11,13 +11,13 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Plus, Edit, Trash2, Package, Calendar, Building2, Users, Settings } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
-import { useRequirements, useEquipmentTypes, Requirement } from '@/hooks/useRequirements';
+import { useRequirements, Requirement } from '@/hooks/useRequirements';
 import { useCompanies } from '@/hooks/useCompanies';
 import { useCustomers } from '@/hooks/useCustomers';
 
 const RequirementManagement = () => {
   const { requirements, addRequirement, updateRequirement, deleteRequirement } = useRequirements();
-  const { equipmentTypes, addEquipmentType } = useEquipmentTypes();
+  // const { equipmentTypes, addEquipmentType } = useEquipmentTypes();
   const { companies } = useCompanies();
   const { customers } = useCustomers();
   
@@ -85,24 +85,8 @@ const RequirementManagement = () => {
   };
 
   const handleAddEquipmentType = async () => {
-    if (!newEquipmentName.trim()) return;
-
-    try {
-      await addEquipmentType(newEquipmentName.trim());
-      toast({
-        title: "Success",
-        description: "Equipment type added successfully",
-      });
-      setNewEquipmentName('');
-      setIsAddingEquipment(false);
-    } catch (error) {
-      console.error('Error adding equipment type:', error);
-      toast({
-        title: "Error",
-        description: "Failed to add equipment type",
-        variant: "destructive",
-      });
-    }
+    // No equipment type functionality available
+    return;
   };
 
   const resetForm = () => {
@@ -264,11 +248,7 @@ const RequirementManagement = () => {
                       <SelectValue placeholder="Select equipment" />
                     </SelectTrigger>
                     <SelectContent>
-                      {equipmentTypes.map(equipment => (
-                        <SelectItem key={equipment.id} value={equipment.name}>
-                          {equipment.name}
-                        </SelectItem>
-                      ))}
+                      {/* No equipment types available */}
                     </SelectContent>
                   </Select>
                 </div>

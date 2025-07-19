@@ -14,7 +14,9 @@ import { toast } from '@/hooks/use-toast';
 import { useVisits, Visit } from '@/hooks/useVisits';
 import { useCompanies } from '@/hooks/useCompanies';
 import { useCustomers } from '@/hooks/useCustomers';
-import { useRequirements, useEquipmentTypes } from '@/hooks/useRequirements';
+// import { useRequirements, useEquipmentTypes } from '@/hooks/useRequirements';
+import { useRequirements } from '@/hooks/useRequirements';
+
 import VisitDetailsModal from './VisitDetailsModal';
 
 const ACTION_TYPES = [
@@ -33,7 +35,7 @@ const VisitTracker = () => {
   const { companies } = useCompanies();
   const { customers } = useCustomers();
   const { addRequirement } = useRequirements();
-  const { equipmentTypes } = useEquipmentTypes();
+  // const { equipmentTypes } = useEquipmentTypes();
   const [isAddingVisit, setIsAddingVisit] = useState(false);
   const [editingVisit, setEditingVisit] = useState<Visit | null>(null);
   const [selectedCompany, setSelectedCompany] = useState('');
@@ -442,11 +444,7 @@ const VisitTracker = () => {
                           <SelectValue placeholder="Select equipment" />
                         </SelectTrigger>
                         <SelectContent>
-                          {equipmentTypes.map(equipment => (
-                            <SelectItem key={equipment.id} value={equipment.name}>
-                              {equipment.name}
-                            </SelectItem>
-                          ))}
+                          {/* No equipment types available */}
                         </SelectContent>
                       </Select>
                     </div>
