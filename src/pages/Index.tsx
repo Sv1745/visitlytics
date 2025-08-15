@@ -317,7 +317,7 @@ const Index = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">{activeOpportunities}</div>
-                  <p className="text-xs opacity-90">${totalPipelineValue.toLocaleString()}</p>
+                  <p className="text-xs opacity-90">₹{totalPipelineValue.toLocaleString()}</p>
                 </CardContent>
               </Card>
 
@@ -432,7 +432,7 @@ const Index = () => {
                           <span className="text-sm font-medium text-cyan-800 dark:text-cyan-200">Active Deals</span>
                           <Badge variant="secondary">{activeOpportunities}</Badge>
                         </div>
-                        <p className="text-xs text-cyan-600 dark:text-cyan-400 mt-1">${totalPipelineValue.toLocaleString()} total value</p>
+                        <p className="text-xs text-cyan-600 dark:text-cyan-400 mt-1">₹{totalPipelineValue.toLocaleString()} total value</p>
                       </div>
                       <div 
                         className="p-3 bg-green-50 dark:bg-green-950 border border-green-200 dark:border-green-800 rounded-lg cursor-pointer hover:bg-green-100 dark:hover:bg-green-900 transition-colors"
@@ -575,7 +575,7 @@ const Index = () => {
                     <TrendingUp className="h-4 w-4 text-purple-600" />
                   </CardHeader>
                   <CardContent>
-                    <div className="text-2xl font-bold text-purple-700 dark:text-purple-300">${totalPipelineValue.toLocaleString()}</div>
+                    <div className="text-2xl font-bold text-purple-700 dark:text-purple-300">₹{totalPipelineValue.toLocaleString()}</div>
                     <p className="text-xs text-purple-600 dark:text-purple-400">Across all stages</p>
                   </CardContent>
                 </Card>
@@ -586,7 +586,7 @@ const Index = () => {
                     <Target className="h-4 w-4 text-green-600" />
                   </CardHeader>
                   <CardContent>
-                    <div className="text-2xl font-bold text-green-700 dark:text-green-300">${weightedPipelineValue.toLocaleString()}</div>
+                    <div className="text-2xl font-bold text-green-700 dark:text-green-300">₹{weightedPipelineValue.toLocaleString()}</div>
                     <p className="text-xs text-green-600 dark:text-green-400">Probability adjusted</p>
                   </CardContent>
                 </Card>

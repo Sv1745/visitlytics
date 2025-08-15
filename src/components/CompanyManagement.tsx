@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Building2, Search, MapPin, Edit, Trash2 } from 'lucide-react';
+import { Building2, Search, MapPin, Edit, Trash2, Plus } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
 import { ExcelUpload } from './ExcelUpload';
 import { CompanyForm } from './CompanyForm';
@@ -99,7 +99,10 @@ export const CompanyManagement = () => {
       <Tabs defaultValue="list" className="w-full">
         <TabsList className="grid w-full grid-cols-4">
           <TabsTrigger value="list">Companies</TabsTrigger>
-          <TabsTrigger value="add">Add Company</TabsTrigger>
+          <TabsTrigger value="add" className="flex items-center gap-2">
+            <Plus className="w-4 h-4" />
+            Add Company
+          </TabsTrigger>
           <TabsTrigger value="map">Map View</TabsTrigger>
           <TabsTrigger value="upload">Bulk Upload</TabsTrigger>
         </TabsList>

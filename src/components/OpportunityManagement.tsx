@@ -211,7 +211,7 @@ const OpportunityManagement = () => {
         {opportunity.value && (
           <div className="flex items-center gap-1 mb-2">
             <DollarSign className="h-3 w-3" />
-            <span className="text-sm font-medium">${opportunity.value.toLocaleString()}</span>
+            <span className="text-sm font-medium">₹{opportunity.value.toLocaleString()}</span>
           </div>
         )}
         {opportunity.expected_closing_date && (
@@ -236,7 +236,7 @@ const OpportunityManagement = () => {
               <h3 className="font-medium text-sm">{stage.label}</h3>
               <div className="flex justify-between items-center mt-1">
                 <span className="text-xs">{stageOpportunities.length} deals</span>
-                <span className="text-xs font-medium">${stageValue.toLocaleString()}</span>
+                <span className="text-xs font-medium">₹{stageValue.toLocaleString()}</span>
               </div>
             </div>
             <div className="border border-t-0 rounded-b-lg p-3 min-h-[350px] bg-gray-50">
@@ -284,7 +284,7 @@ const OpportunityManagement = () => {
                   </p>
                   <div className="flex gap-4 mt-2">
                     {opportunity.value && (
-                      <span className="text-sm">${opportunity.value.toLocaleString()}</span>
+                      <span className="text-sm">₹{opportunity.value.toLocaleString()}</span>
                     )}
                     {opportunity.expected_closing_date && (
                       <span className="text-sm text-muted-foreground">
@@ -409,7 +409,7 @@ const OpportunityManagement = () => {
 
               <div className="grid grid-cols-3 gap-4">
                 <div>
-                  <Label htmlFor="value">Deal Value ($)</Label>
+                  <Label htmlFor="value">Deal Value (₹)</Label>
                   <Input
                     id="value"
                     type="number"
@@ -473,7 +473,7 @@ const OpportunityManagement = () => {
               <Target className="h-5 w-5 text-blue-500" />
               <div>
                 <p className="text-sm text-muted-foreground">Total Pipeline</p>
-                <p className="text-2xl font-bold">${getTotalValue().toLocaleString()}</p>
+                <p className="text-2xl font-bold">₹{getTotalValue().toLocaleString()}</p>
               </div>
             </div>
           </CardContent>
@@ -484,7 +484,7 @@ const OpportunityManagement = () => {
               <TrendingUp className="h-5 w-5 text-green-500" />
               <div>
                 <p className="text-sm text-muted-foreground">Weighted Pipeline</p>
-                <p className="text-2xl font-bold">${getWeightedValue().toLocaleString()}</p>
+                <p className="text-2xl font-bold">₹{getWeightedValue().toLocaleString()}</p>
               </div>
             </div>
           </CardContent>

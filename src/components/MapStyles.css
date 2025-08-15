@@ -1,0 +1,163 @@
+/* MapStyles.css - Enhanced styles for the Leaflet map component */
+
+/* Map container */
+.map-container {
+  position: relative;
+  height: 400px;
+  width: 100%;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.map-container.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1000;
+  border-radius: 0;
+}
+
+/* Leaflet container base styling */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  font-family: inherit;
+}
+
+/* Loading overlay */
+.map-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.loading-spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border-left-color: #3b82f6;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Map controls */
+.map-controls {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+  padding: 6px;
+  display: flex;
+  gap: 4px;
+}
+
+.map-control-button {
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+}
+
+.map-control-button:hover {
+  background: #f0f0f0;
+}
+
+/* Fix for Leaflet icons */
+.leaflet-default-icon-path {
+  background-image: url(https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png) !important;
+}
+
+.leaflet-default-shadow-path {
+  background-image: url(https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png) !important;
+}
+
+.leaflet-marker-icon {
+  display: block !important;
+}
+
+.leaflet-container .leaflet-marker-pane img, 
+.leaflet-container .leaflet-shadow-pane img {
+  max-width: none !important;
+}
+
+/* Popup styling */
+.leaflet-popup-content-wrapper {
+  border-radius: 4px;
+  padding: 0;
+}
+
+.leaflet-popup-content {
+  margin: 8px 10px;
+  line-height: 1.4;
+}
+
+/* Custom marker styling */
+.company-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background-color: #3b82f6;
+  color: white;
+  border-radius: 50%;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Company popup styling */
+.company-marker-popup {
+  min-width: 200px;
+}
+
+.company-marker-popup h3 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.company-marker-popup p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.company-marker-popup .address {
+  font-style: italic;
+  color: #666;
+}
+
+/* Error message styling */
+.map-error {
+  padding: 10px;
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  text-align: center;
+}

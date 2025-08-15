@@ -120,17 +120,54 @@ export const ExcelUpload = () => {
         <CardTitle>Upload Companies (CSV)</CardTitle>
         <CardDescription>Upload a CSV file with columns: Company Name, Company Type, Address (optional), Phone (optional)</CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="space-y-4">
+        {/* Instructions Panel */}
+        <div className="bg-slate-50 dark:bg-slate-900 p-4 rounded-md border border-slate-200 dark:border-slate-800">
+          <h4 className="font-medium flex items-center gap-2 mb-2">
+            <FileSpreadsheet className="h-4 w-4" />
+            CSV Format Instructions
+          </h4>
+          <ul className="text-sm space-y-2 text-slate-700 dark:text-slate-300">
+            <li className="flex items-start gap-2">
+              <CheckCircle className="h-4 w-4 text-green-500 mt-0.5" />
+              <span>First row must be headers (columns names)</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <CheckCircle className="h-4 w-4 text-green-500 mt-0.5" />
+              <span><strong>Required columns:</strong> "Company Name", "Company Type"</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <CheckCircle className="h-4 w-4 text-green-500 mt-0.5" />
+              <span><strong>Optional columns:</strong> "Address", "Phone"</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <AlertCircle className="h-4 w-4 text-amber-500 mt-0.5" />
+              <span>Excel files (.xlsx) are not supported. Please save as CSV format.</span>
+            </li>
+          </ul>
+          <div className="mt-3 bg-slate-100 dark:bg-slate-800 p-2 rounded text-xs font-mono overflow-x-auto">
+            Company Name,Company Type,Address,Phone<br />
+            Acme Corp,Manufacturing,123 Main St,555-1234<br />
+            TechStart,Technology,456 Innovation Ave,555-5678
+          </div>
+        </div>
+        
+        {/* File Input and Upload Button */}
         <Input id="file-input" type="file" accept=".csv" onChange={handleFileChange} />
-        <Button onClick={handleUpload} disabled={uploading || !file} className="mt-2">
+        <Button onClick={handleUpload} disabled={uploading || !file} className="w-full">
           {uploading ? 'Uploading...' : 'Upload'} <Upload className="ml-2 w-4 h-4" />
         </Button>
+        
+        {/* Preview Section */}
         {preview.length > 0 && (
           <div className="mt-4">
-            <h4>Preview</h4>
-            <ul>
+            <h4 className="font-medium mb-2">Preview</h4>
+            <ul className="divide-y">
               {preview.map((c, i) => (
-                <li key={i}>{c.name} - {c.type}</li>
+                <li key={i} className="py-2">
+                  <div className="font-medium">{c.name}</div>
+                  <div className="text-sm text-slate-500">{c.type}{c.address ? `, ${c.address}` : ''}</div>
+                </li>
               ))}
             </ul>
           </div>
